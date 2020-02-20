@@ -11,7 +11,7 @@
 * https://www.youtube.com/watch?v=1FOfL6bDSF4
 *
 *
-* 3) we can use the composition in typescript wuthout inheritence like clubbing multiple functions in to single
+* 3) we can use the composition in typescript without inheritence like clubbing multiple functions in to single
 * object that has a function.
 *
 * 4) using readOnly in the class since we can't use const for classLevel variable.

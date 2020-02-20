@@ -45,3 +45,35 @@ ideas[0] = 'newbanana';
 
 console.log(ideas); // [ 'newbanana', 'apple', 'grape' ]
 console.log(newIdeas); // [ 'banana', 'apple', 'grape' ]
+
+// 3rd way is using traditional forloop and pushing to a new array.
+
+var ideas = ['banana', 'apple', 'grape'];
+var newIdeas = [];
+
+for(var i =0; i < ideas.length; i++) {
+    newIdeas.push(ideas[i])
+}
+
+console.log(newIdeas); // [ 'banana', 'apple', 'grape' ]
+console.log(ideas); // [ 'banana', 'apple', 'grape' ]
+
+newIdeas[0] = 'newBanana'; // FYI: after this the previous consoles wont change. if we print console then after
+// even the newIdeas is changed. but if we try to use that variable next onwards it will be changed.
+
+console.log(newIdeas); // [ 'newBanana', 'apple', 'grape' ]
+console.log(ideas); // [ 'banana', 'apple', 'grape' ]
+
+
+// 4th way is using Array.from
+
+let fruits = ['banana', 'apple', 'grape'];
+//var newIdeas = [];
+
+
+let newFruits = Array.from(fruits);
+fruits[0] = 'newBanana';
+console.log(fruits); // [ 'newBanana', 'apple', 'grape' ]
+console.log(newFruits); // [ 'banana', 'apple', 'grape' ]
+
+// 5th way is using Object.assign([], ['apple', 'banana'];

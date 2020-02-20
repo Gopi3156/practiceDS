@@ -68,9 +68,9 @@ console.log(newCars); // [ 2, 3, 4, 5 ]
 
 var newCarShowRooms = ['Honda','Nissan', 'Mazda'];
 
-console.log(newCarShowRooms.slice(0, 1));
+console.log(newCarShowRooms.slice(0, 1)); //[ 'Honda' ]
 
-console.log(newCarShowRooms);
+console.log(newCarShowRooms); //[ 'Honda', 'Nissan', 'Mazda' ]
 
 
 
