@@ -1,6 +1,11 @@
 /*
 * trying to layout all the use cases of closures in JavaScript.
+*
+* Def: The inner function will have access to the variables in the outer function scope,
+* even after the outer function has returned.
 * */
+
+
 
 var a; // here a needs to be the global variable just the declaration is fine.
 // this is not closure because a here is global variable so all the functions can access this
@@ -80,3 +85,54 @@ function printName3() {
 }
 
 console.log(printName3()()); // will print Gopi because of console statement in showName.
+
+
+// 4th use case
+
+// this fn behaves like a factory of fn's
+
+function addTwo5(x) {
+    return function addTwo6(y) { // since this fn is inside the addTwo5 fn the inner fn
+        // can still remember the var x even after the outer fn execution is done.
+        return x + y;
+    }
+}
+
+const add2 = addTwo5(2); // this behaves like a factory returns different context everytime. we can call like
+// this with multiple values and it wont clash with others. so the fn below has different context
+// basically we can achieve factory fn's using Closure in this way.
+const add3 = addTwo5(3);
+
+console.log(add2(5)); // 7, it still remembers x as 2
+console.log(add3(5)); // 8, it still remembers x as 3
+
+// 5th way, named fn way is also possible but the named fn should be defined inside the outerFn.
+
+function addTwo7(x) {
+    const addTwo6 = function(y) {
+        return x + y;
+    };
+    return addTwo6;
+}
+
+const add7 = addTwo7(5);
+
+console.log(add7(5)); // 10, it still remembers x as 5
+
+
+// 6th way, not exactly closure i see this as a global varaible concept but tutorials say it as closure.
+
+var myName =  { 'Gopi': 'kris'}; // or string
+
+function printMyName() {
+    return myName;
+}
+
+console.log(printMyName()); //{ Gopi: 'kris' } or Gopi,
+// doesnot matter it is primitive or reference variable type
+
+myName = { 'Gopi': 'krisupdated'}; // since its reassigned after the above fn call the above console log
+// is dispalying the previous value and only the below will be updated. and we are re-using the same variable
+// we didnt use var again here.
+
+console.log(printMyName()); // { Gopi: 'krisupdated' }  or Gopi Krishna
