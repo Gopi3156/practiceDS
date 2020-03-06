@@ -2,10 +2,11 @@
 //let names = ['Gopi', 'Gowthami', 'Krishna', 'Chandana'];
 let names = [6,3,2];
 const bubbleSort = function() {
-    var swap = false;
-    for(var i=0; i < names.length; i++ ) {
+    let swap = false;
+    for(let i=0; i < names.length; i++ ) {
         console.log(i); // 0,1,2,0,1,2,0,1,2
         if(names[i] > names[i+1]) {
+            console.log(swap); // false, true, false
             swap = true;
             let temp = names[i];
             names[i] = names[i+1];
@@ -39,8 +40,8 @@ console.log(bubbleSort()); // [2,3,6]
 *
 * the above is the bubble sort(https://visualgo.net/en/sorting). basically we will compare two elements
 * sitting next to each other and swap if the 1st is greater than smaller continue this for 1st iteration
-* we need to loop again and again until we push the lower ones to the left side. basically this is the worst
-* sorting algorithm so this keeps on doing iteration for n for loops.
+* we need to loop again and again untill there are no more swaps required. basically this is the worst sorting
+* algorithm so this keeps on doing iteration for n for loops.
 *
 *
 * */
