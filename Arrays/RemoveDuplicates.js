@@ -47,3 +47,25 @@ var finalArrayFromSet = [...set];
 console.log(finalArrayFromSet); // [ 1, 2, 3, 4 ]
 
 // single line  [...new Set(numbers)]
+
+let array = [1,2,3,4,1,4];
+
+const pullDupes = (input) => {
+    let dupes = [];
+    let acc = {};
+
+    for(let i=0; i < input.length; i++) {
+
+        if(acc[input[i]] === undefined) {
+            acc[input[i]] = 1;
+            console.log(acc);
+        } else {
+            acc[input[i]] = acc[input[i]] + 1;
+            dupes.push(input[i]);
+            console.log(dupes);
+        }
+    }
+    return dupes;
+};
+
+console.log(pullDupes(array)); // [1,4]

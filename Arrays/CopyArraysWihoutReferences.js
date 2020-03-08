@@ -77,3 +77,59 @@ console.log(fruits); // [ 'newBanana', 'apple', 'grape' ]
 console.log(newFruits); // [ 'banana', 'apple', 'grape' ]
 
 // 5th way is using Object.assign([], ['apple', 'banana'];
+
+let heroes = ['chiru', 'pawan', 'Nag'];
+
+newHereos = Object.assign([], heroes);
+
+console.log(newHereos);
+
+newHereos[0] = 'Mahesh';
+
+console.log(newHereos); //[ 'Mahesh', 'pawan', 'Nag' ]
+console.log(heroes); // [ 'Chiru', 'pawan', 'Nag' ]
+
+
+/*
+* All the above are only used for shallow copies not for deep nested objects or arrat copies. For that the
+* solution i see using JSON.stringfy(javaScript object) and then using JSON.parse(retured JSON stringify) object.
+*
+*
+* */
+
+
+let obj = {name: {firstName: 'Gopi'}};
+
+let newObj = Object.assign({}, obj);
+
+console.log(newObj); // { name: { firstName: 'Gopi' } }
+console.log(obj); // { name: { firstName: 'Gopi' } }
+
+newObj.name.firstName = 'Krishna';
+
+// see both the below firstName are changed to Krishna
+console.log(newObj); // { name: { firstName: 'Krishna' } }
+console.log(obj); // { name: { firstName: 'Krishna' } }
+
+// the above is the problem, the only solution i see is the JSON.stringfy and JSON.parse
+
+let secondObj = {name: {firstName: 'Gopi'}};
+
+let secondNewObj = JSON.parse(JSON.stringify(secondObj));
+
+console.log(secondObj); // { name: { firstName: 'Gopi' } }
+console.log(secondNewObj); // { name: { firstName: 'Gopi' } }
+
+secondNewObj.name.firstName = 'Krishna';
+
+console.log(secondNewObj); // { name: { firstName: 'Krishna' } }
+console.log(secondObj); // { name: { firstName: 'Gopi' } }
+
+// see above example did the deep copy with out effecting the original Object.
+
+/*
+*
+* so far i only see JSON.parse and JSON.stringfy are the only two ways to do the deep nested copies.
+*
+* this can be used for both the arrays and objects.
+* */
