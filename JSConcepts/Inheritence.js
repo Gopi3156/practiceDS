@@ -45,4 +45,4 @@ let PrintJobRole = class {
 console.log(new PrintJobRole("Front End").printRoleType()); // Front End
 
 // Classes has static method types and static methods can only be called with the direct class Name
-// instance is not required and it will be undefiend if you try to call with instance.
+// instance is not required and it will be undefined if you try to call with instance.
